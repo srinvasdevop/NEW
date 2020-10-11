@@ -3,11 +3,9 @@
 mkdir rupee
 ls 
 
-ls -ll
 ls -ltr
 
 ls -la
-   
 
 mkdir sri
 
