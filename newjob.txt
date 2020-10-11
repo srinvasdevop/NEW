@@ -9,3 +9,7 @@ ls -la
 
 mkdir sri
 
+
+
+
+touch 1.txt
