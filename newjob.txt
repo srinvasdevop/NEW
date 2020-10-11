@@ -5,3 +5,7 @@ ls
 
 
 ls -la
+   
+
+mkdir sri
+
