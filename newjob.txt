@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+mkdir rupee
 ls 
 
 ls -ll
