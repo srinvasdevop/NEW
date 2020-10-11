@@ -3,6 +3,7 @@
 
 ls 
 
+ls -ll
 ls -ltr
 
 ls -la
