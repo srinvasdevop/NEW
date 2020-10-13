@@ -4,4 +4,4 @@ ls ll
 ls -la
 ifconfig
 mkdir naresh
-cd naresh
+clear
