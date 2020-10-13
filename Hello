@@ -4,3 +4,4 @@ ls ll
 ls -la
 ifconfig
 mkdir sri
+cd sri
