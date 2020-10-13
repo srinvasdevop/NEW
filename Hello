@@ -3,5 +3,5 @@ ls -ltr
 ls ll
 ls -la
 ifconfig
-mkdir sri
-cd sri
+mkdir naresh
+cd naresh
