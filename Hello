@@ -3,6 +3,6 @@ ls -ltr
 ls ll
 mkdir naresh
 cd naresh
-
+ls -la
 mkdir roopesh
 cd roopesh
