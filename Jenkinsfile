@@ -1,4 +1,16 @@
-pipeline {
+pipeline { 2
+    environment { 
+
+        registry = "srinivaass1/demopush" 
+
+        registryCredential = 'dockerhub_id' 
+
+        dockerImage = '' 
+
+    }
+    
+  
+  
 
   agent any
 
@@ -15,19 +27,24 @@ pipeline {
                 script {
                     myapp = docker.build("srinvasdevop/demo:${env.BUILD_ID}")
                 }
-            }
-        }
-    
-      stage("Push image") {
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                            myapp.push("latest")
-                            myapp.push("${env.BUILD_ID}")
+     stage('Deploy our image') { 
+            steps { 
+                script { 
+                    docker.withRegistry( '', registryCredential ) { 
+
+                        dockerImage.push() 
+
                     }
-                }
+
+                } 
+
             }
-        }
+
+        } 
+            
+        
+    
+
 
     
     stage('Deploy App') {
