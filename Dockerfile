@@ -1,5 +1,5 @@
-FROM zenika/alpine-maven
-WORKDIR /opt
-COPY / ./
+FROM centos:latest
+RUN yum update -y
+#COPY / ./
 RUN ls -lrt
-RUN mvn clean package
+#RUN mvn clean package
