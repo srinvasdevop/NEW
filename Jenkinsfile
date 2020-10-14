@@ -6,7 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/srinvasdevop/NEW.git', branch:'master'
+          git 'https://github.com/srinvasdevop/NEW.git', branch:'master'
       }
     }
     
