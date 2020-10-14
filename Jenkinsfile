@@ -1,22 +1,12 @@
-pipeline { 
-    environment { 
+pipeline {
 
-        registry = "srinivaass1/demopush" 
-
-        registryCredential = 'dockerhub_id' 
-
-        dockerImage = '' 
-
-    }
-   
-   
   agent any
 
   stages {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/srinvasdevop/NEW.git', branch:'main'
+        git url:'https://github.com/srinvasdevop/NEW.git', branch:'master'
       }
     }
     
@@ -25,24 +15,19 @@ pipeline {
                 script {
                     myapp = docker.build("srinvasdevop/demo:${env.BUILD_ID}")
                 }
-     stage('Deploy our image') { 
-            steps { 
-                script { 
-                    docker.withRegistry( '', registryCredential ) { 
-
-                        dockerImage.push() 
-
-                    }
-
-                } 
-
             }
-
-        } 
-            
-        
+        }
     
-
+      stage("Push image") {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                            myapp.push("latest")
+                            myapp.push("${env.BUILD_ID}")
+                    }
+                }
+            }
+        }
 
     
     stage('Deploy App') {
@@ -52,5 +37,7 @@ pipeline {
         }
       }
     }
+
+  }
 
 }
