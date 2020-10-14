@@ -8,10 +8,8 @@ pipeline {
         dockerImage = '' 
 
     }
-    
-  
-  
-
+   
+   
   agent any
 
   stages {
@@ -55,7 +53,4 @@ pipeline {
       }
     }
 
-  }
-
 }
-  }
