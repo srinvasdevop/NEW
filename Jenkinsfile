@@ -17,7 +17,7 @@ pipeline {
 
             steps { 
 
-                git 'https://github.com/srinvasdevop/NEW/new/main' 
+                git 'https://github.com/srinvasdevop/NEW.git' 
 
             }
 
