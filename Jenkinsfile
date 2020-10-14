@@ -1,5 +1,8 @@
 pipeline {
-
+    environment {
+    registry = "srinivaass1/demopush"
+    registryCredential = 'dockerhub'
+}
   agent any
 
   stages {
