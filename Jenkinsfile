@@ -1,4 +1,4 @@
-pipeline { 2
+pipeline { 
     environment { 
 
         registry = "srinivaass1/demopush" 
@@ -58,3 +58,4 @@ pipeline { 2
   }
 
 }
+  }
