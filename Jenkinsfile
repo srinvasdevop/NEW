@@ -71,7 +71,10 @@ pipeline {
 
     script {
 
-          kubernetesDeploy( configs: 'hellowhale.yml', kubeconfigId: 'impelsys-id')
+         // kubernetesDeploy( configs: 'hellowhale.yml', kubeconfigId: 'impelsys-id')
+      kubeconfig(credentialsId: 'eks-cluster', serverUrl: 'https://38741E1C0141905234F42940381449A0.gr7.us-east-1.eks.amazonaws') {
+    sh 'kubectl apply -f hellowhale.yml -n default'
+}
 
  }
 
