@@ -72,7 +72,7 @@ pipeline {
     script {
 
    kubeconfig(credentialsId: 'eks-cluster', serverUrl: 'https://38741E1C0141905234F42940381449A0.gr7.us-east-1.eks.amazonaws') {
-   kubectl get pods --all-namespaces
+   sh 'kubectl get pods --all-namespaces'
 }
 
  }
