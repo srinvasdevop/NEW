@@ -1,16 +1,16 @@
-FROM centos:latest
-RUN yum update -y
-COPY / ./
-RUN ls -ll
-RUN ls -ltr
-RUN yum install git -y
-RUN yum install curl -y
-RUN mvn clean package
-
-# FROM nginx
-
-# COPY wrapper.sh /
+# FROM centos:latest
+# RUN yum update -y
+# COPY / ./
 # RUN ls -ll
-# COPY index.html /usr/share/nginx/html
+# RUN ls -ltr
+# RUN yum install git -y
+# RUN yum install curl -y
+# RUN mvn clean package
 
-# CMD ["./wrapper.sh"]
+FROM nginx
+
+COPY wrapper.sh /
+RUN ls -ll
+COPY index.html /usr/share/nginx/html
+
+CMD ["./wrapper.sh"]
