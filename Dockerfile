@@ -10,7 +10,7 @@
 FROM nginx
 
 COPY wrapper.sh /
-RUN ls -ll
+
 COPY index.html /usr/share/nginx/html
 
 CMD ["./wrapper.sh"]
