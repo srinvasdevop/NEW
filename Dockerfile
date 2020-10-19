@@ -1,4 +1,3 @@
-#!/bin/bash
 FROM centos:latest
 RUN yum update -y
 COPY / ./
