@@ -7,7 +7,7 @@
 # RUN mvn clean package
 
 FROM nginx
-RUN ls-ll
+RUN ls-la
 COPY wrapper.sh /
 
 COPY index.html /usr/share/nginx/html
