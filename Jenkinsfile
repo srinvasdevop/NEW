@@ -1,15 +1,8 @@
-pipeline { 
-    environment { 
-
-        registry = "srinivaass1/demopush" 
-
-        registryCredential = 'dockerhub_id' 
-
-        dockerImage = '' 
-
-    }
-   
-   
+pipeline {
+    environment {
+    registry = "srinivaass1/demopush"
+    registryCredential = 'dockerhub'
+}
   agent any
 
   stages {
@@ -23,34 +16,31 @@ pipeline {
       stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("srinvasdevop/demo:${env.BUILD_ID}")
+                    myapp = docker.build("srinivaass1/demopush:${env.BUILD_ID}")
                 }
-     stage('Deploy our image') { 
-            steps { 
-                script { 
-                    docker.withRegistry( 'https://registry.hub.docker.com', 'dockerhub' ) { 
-
-                        dockerImage.push() 
-
-                    }
-
-                } 
-
             }
-
-        } 
-            
-        
+        }
     
-
+      stage("Push image") {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                            myapp.push("latest")
+                            myapp.push("${env.BUILD_ID}")
+                    }
+                }
+            }
+        }
 
     
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "yes")
         }
       }
     }
 
+  }
+   
 }
