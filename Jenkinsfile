@@ -65,7 +65,7 @@ pipeline {
 		 steps { 
 	   kubernetesDeploy(
 	      configs: 'hellowhale.yml',
-		  kubecocnfigId: 'kubeconfig_con',
+		  kubeconfigId: 'kubeconfig_con',
 		  enableConfigSubstitution: true
 		)
 		 }
