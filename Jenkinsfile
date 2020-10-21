@@ -66,5 +66,6 @@ pipeline {
 	      configs: 'pods.yml',
 		  kubecocnfigID: 'kubeconfig_con'
 		  enableConfigSubstitution: true
+		   )
 		  }
 }
