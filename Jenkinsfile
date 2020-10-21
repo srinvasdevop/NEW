@@ -61,7 +61,7 @@ pipeline {
       }
 
     }
-	stage("Deploy to k8") {
+	stage("Deploy to k8"){
 	   kubernetsDeploy(
 	      configs: 'hellowhale.yml',
 		  kubecocnfigId: 'kubeconfig_con',
